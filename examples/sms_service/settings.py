@@ -10,7 +10,7 @@ MYSQL_CONFIG = {
     'host': os.environ.get('MYSQL_HOST', '192.168.0.210'),
     'port': int(os.environ.get('MYSQL_PORT', 3306)),
     'user': os.environ.get('MYSQL_USER', 'root'),
-    'password': os.environ.get('MYSQL_PASSWORD', 'hJYC8PsOsUR45wnDQtGle8cqCFbmN9eY'),
+    'password': os.environ.get('MYSQL_PASSWORD', '123456'),
     'db': os.environ.get('MYSQL_DB', APP_ID)
 }
 
