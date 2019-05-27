@@ -60,10 +60,13 @@ async def after_server_start(app, loop):
 @app.listener('before_server_stop')
 async def before_server_stop(app, loop):
     app.queue.join()
-    app.redis_pool.close()
-    app.mongo_pool.close()
-    app.mysql_pool.close()
-    await app.mysql_pool.wait_closed()
+    if app.redis_pool is not None:
+        app.redis_pool.close()
+    if app.mongo_pool is not None:
+        app.mongo_pool.close()
+    if app.mysql_pool is not None:
+        app.mysql_pool.close()
+        await app.mysql_pool.wait_closed()
 
 
 @app.exception(RequestTimeout)
