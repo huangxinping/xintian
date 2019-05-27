@@ -11,10 +11,10 @@ from sanic_sentry import SanicSentry
 from sanic_compress import Compress
 from sanic_cors import CORS
 
-from sonic import load_config
-from sonic.utils import CustomHandler
-from sonic.db import RedisPool, MySQLPool, MongoPool
-from sonic.exception import ServerError
+from xintian import load_config
+from xintian.utils import CustomHandler
+from xintian.db import RedisPool, MySQLPool, MongoPool
+from xintian.exception import ServerError
 
 config = load_config()
 appid = config.get('APP_ID', __name__)

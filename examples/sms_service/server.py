@@ -1,4 +1,4 @@
-from sonic.server import app
+from xintian.server import app
 from views import *
 
 app.blueprint(v1_bp)

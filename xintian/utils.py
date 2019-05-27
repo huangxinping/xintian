@@ -2,9 +2,9 @@ import logging
 import json
 
 from sanic.handlers import ErrorHandler
-from sonic.exception import CustomException
+from xintian.exception import CustomException
 
-logger = logging.getLogger('sonic')
+logger = logging.getLogger('xintian')
 
 
 def jsonify(records):
