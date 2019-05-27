@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="xintian",
-    version="0.0.4",
+    version="0.0.5",
     author="huangxinping",
     author_email="o0402@outlook.com",
     description="A micro service framework for Sanic, so easy.",
