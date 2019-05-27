@@ -2,13 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name="xintian",
-    version="0.0.1",
+    version="0.0.2",
     author="huangxinping",
     author_email="o0402@outlook.com",
     description="A micro service framework for Sanic, so easy.",
     license="MIT",
     url="https://github.com/huangxinping/xintian",  # project home page, if any
-    download_url = 'https://github.com/huangxinping/xintian/archive/0.0.1.tar.gz',
+    download_url = 'https://github.com/huangxinping/xintian/archive/0.0.2.tar.gz',
     keywords = ['micro', 'service', 'sanic', 'flask'],
     packages=find_packages(),
 
