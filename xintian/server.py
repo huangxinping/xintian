@@ -33,6 +33,9 @@ CORS(app, automatic_options=True, esources={r"/*": {"origins": "*"}})
 async def before_server_start(app, loop):
     queue = asyncio.Queue()
     app.queue = queue
+    app.redis_pool = None
+    app.mysql_pool = None
+    app.mongo_pool = None
 
     # redis
     if 'REDIS_CONFIG' in app.config:
