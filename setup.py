@@ -7,8 +7,9 @@ setup(
     author_email="o0402@outlook.com",
     description="A micro service framework for Sanic, so easy.",
     license="MIT",
-    keywords="micro service sanic python flask",
     url="https://github.com/huangxinping/xintian",  # project home page, if any
+    download_url = 'https://github.com/huangxinping/xintian/archive/0.0.1.tar.gz',
+    keywords = ['micro', 'service', 'sanic', 'flask'],
     packages=find_packages(),
 
     install_requires=[
