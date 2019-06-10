@@ -24,6 +24,7 @@ setup(
         'uvloop>=0.12.0',
         'aiohttp>=3.5.4',
         'pyyaml>=5.1',
+        'jaeger-client>=4.0.0',
     ],
     package_data={
         'xintian': ['*.py', '*.yml'],

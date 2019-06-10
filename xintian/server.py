@@ -12,7 +12,7 @@ from sanic_compress import Compress
 from sanic_cors import CORS
 
 from xintian import load_config
-from xintian.utils import CustomHandler
+from xintian.utils import CustomHandler, init_jaeger_tracer
 from xintian.db import RedisPool, MySQLPool, MongoPool
 from xintian.exception import ServerError
 
@@ -36,6 +36,7 @@ async def before_server_start(app, loop):
     app.redis_pool = None
     app.mysql_pool = None
     app.mongo_pool = None
+    app.trace = None
 
     # redis
     if 'REDIS_CONFIG' in app.config:
@@ -49,10 +50,13 @@ async def before_server_start(app, loop):
         await mysql_pool.open(app.config['MYSQL_CONFIG'])
         app.mysql_pool = mysql_pool
 
-        # mongo
+    # mongo
     if 'MONGO_CONFIG' in app.config:
         mongo_pool = MongoPool()
         app.mongo_pool = await mongo_pool.open(app.config['MONGO_CONFIG'])
+
+    # Jaeger trace
+    app.trace = init_jaeger_tracer(appid, config.get('USE_PROMETHUS_FOR_JAEGER', False))
 
 
 @app.listener('after_server_start')
@@ -70,6 +74,7 @@ async def before_server_stop(app, loop):
     if app.mysql_pool is not None:
         app.mysql_pool.close()
         await app.mysql_pool.wait_closed()
+    app.trace.close()
 
 
 @app.exception(RequestTimeout)

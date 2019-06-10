@@ -37,3 +37,5 @@ API_PRODUCES_CONTENT_TYPES = ['application/json']
 API_CONTACT_EMAIL = 'o0402@outlook.com'
 
 SENTRY_DSN = 'https://b407a597bd2946a5a660a36bad6f3411:2aecfd0ef1c2493abb2673ebacd21d50@error.jiankanghao.net/32'
+
+USE_PROMETHUS_FOR_JAEGER = False
